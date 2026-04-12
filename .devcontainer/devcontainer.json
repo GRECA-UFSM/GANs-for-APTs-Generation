@@ -1,0 +1,45 @@
+{
+    "image": "nvcr.io/nvidia/pytorch:26.03-py3",
+    "runArgs": [
+        "--gpus=all",
+        "--ipc=host"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "false",
+            "configureZshAsDefaultShell": "false",
+            "installOhMyZsh": "false",
+            "installOhMyZshConfig": "false",
+            "username": "automatic",
+            "userUid": "automatic",
+            "userGid": "automatic",
+            "upgradePackages": "true",
+            "nonFreePackages": "false"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "os-provided",
+            "ppa": "false"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+				"python.defaultInterpreterPath": "/usr/bin/python"
+			},
+            "extensions": [
+                "ms-python.python",
+				"ms-python.debugpy",
+				"ms-python.vscode-pylance",
+				"ms-python.isort",
+				"ms-toolsai.jupyter",
+				"ms-toolsai.jupyter-keymap",
+				"ms-toolsai.vscode-jupyter-cell-tags",
+				"ms-toolsai.jupyter-renderers",
+				"ms-toolsai.vscode-jupyter-slideshow",
+                "grapecity.gc-excelviewer"
+            ]
+        }
+    },
+    "remoteUser": "ubuntu",
+    "postCreateCommand": "pip install -r requirements.txt"
+}
